@@ -21,6 +21,8 @@ $media-xxxlarge: 1920px; */
   --color-light-gray: #e7e5e1;
   --color-gray: #6e6e6d;
 
+  --color-red: red;
+
   --background-color: #fbf9f4;
   --background-color-shade: #f5f3ed;
   --background-color-tint: #404041;
@@ -51,9 +53,12 @@ $media-xxxlarge: 1920px; */
 
   --container-max-width: 1280px;
 
-  --scrollbar-width: .4rem;
   --scrollbar-background-color: rgba(0,0,0,0.125);
   --scrollbar-foreground-color: rgba(0,0,0,0.5);
+  --scrollbar-width: .4rem;
+
+  --form-input-background-color: white;
+  --form-input-foreground-color: black;
 }
 
 @media only screen and (min-width: 768px) {
@@ -128,7 +133,7 @@ h4,
 h5,
 h6,
 p,
-blockquote,
+quote,
 label {
   margin: 0;
 }
@@ -349,18 +354,6 @@ img {
   width: 100%;
 }
 
-.buttons--justified-left {
-  justify-content: flex-start;
-}
-
-.buttons--justified-center {
-  justify-content: center;
-}
-
-.buttons--justified-right {
-  justify-content: flex-end;
-}
-
 .button {
     align-items: center;
     background-color: black;
@@ -369,7 +362,7 @@ img {
     cursor: pointer;
     display: inline-flex;
     line-height: 1.125;
-    margin: .5rem;
+    margin: .5rem 0;
     padding: 1rem 2rem;
     justify-content: center;
     text-align: center;
@@ -406,7 +399,7 @@ img {
   justify-content: center;
   min-height: 4rem;
   min-width: 4rem;
-  margin: .5rem;
+  margin: .5rem 0;
   overflow: hidden;
   padding: 1rem;
 }
@@ -430,21 +423,74 @@ img {
 }
 /* Buttons END */
 
-/* blockquote START */
-.blockquote {
+/* quote START */
+.quote {
   margin: 0 auto;
   max-width: 80ch;
   border: 2px  dashed red,
 }
-/* blockquote END */
+/* quote END */
 
-/*Form START (TO DO)*/
+/*Form START (WIP)*/
 .form {
   display: block;
   margin: 0 auto;
-  max-width: 80ch;
+  max-width: 64ch;
   width: 100%;
 }
+
+.form input[type=email],
+.form input[type=month],
+.form input[type=number],
+.form input[type=password],
+.form input[type=search],
+.form input[type=tel],
+.form input[type=text],
+.form input[type=time],
+.form input[type=url],
+.form input[type=week]  {
+  align-items: center;
+  background-color: var(--form-input-background-color);
+  border: 1px solid var(--form-input-foreground-color);
+  color: var(--form-input-foreground-color);
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 1rem 1.6rem;
+  width: 100%;
+}
+
+.form input[type=email]:not(:placeholder-shown):invalid,
+.form input[type=month]:not(:placeholder-shown):invalid,
+.form input[type=number]:not(:placeholder-shown):invalid,
+.form input[type=password]:not(:placeholder-shown):invalid,
+.form input[type=search]:not(:placeholder-shown):invalid,
+.form input[type=tel]:not(:placeholder-shown):invalid,
+.form input[type=text]:not(:placeholder-shown):invalid,
+.form input[type=time]:not(:placeholder-shown):invalid,
+.form input[type=url]:not(:placeholder-shown):invalid,
+.form input[type=week]:not(:placeholder-shown):invalid {
+  color: var(--color-red);
+}
+
+.form-text-field {
+  margin-bottom: 2rem;
+}
+
+.form-text-field label {
+  display: block;
+  font-size: 1.3rem;
+  line-height: 1.125;
+  padding-bottom: .5rem;
+  /* border: 1px dashed currentColor; */
+}
+
+.form-text-field__feedback {
+  font-size: 1.3rem;
+  line-height: 1.125;
+  padding-top: .5rem;
+}
+
 /*Form END*/
 
 /* .accordion START */
@@ -947,7 +993,48 @@ img {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+/*Flexbox*/
+.flex {
+  display: flex;
+}
 
+.flex-wrap {
+  flex-flow: wrap;
+}
+
+.flex-justify-left {
+  justify-content: flex-start;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-justify-right {
+  justify-content: flex-end;
+}
+
+.flex-justify-space-between {
+  justify-content: space-between;
+}
+
+.flex-justify-space-around {
+  justify-content: space-around;
+}
+
+.flex-align-top {
+  align-items: flex-start;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-align-bottom {
+  justify-content: flex-end;
+}
+
+/*Spacing*/
 .spacing-top--small {
   padding-top: 1.5rem;
 }
@@ -1162,7 +1249,7 @@ img {
   }
 
   pre,
-  blockquote {
+  quote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
