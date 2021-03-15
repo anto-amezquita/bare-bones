@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+    <title>plus</title>
+    <line x1="0.01" y1="32" x2="64.01" y2="32" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="10"/>
+    <line x1="32.01" x2="32.01" y2="64" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="10"/>
+</svg>

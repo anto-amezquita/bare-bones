@@ -1,0 +1,1194 @@
+/* // Media Queries
+$media-xsmall: 320px;
+$media-small: 640px;
+$media-medium: 768px;
+$media-large: 1024px;
+$media-xlarge: 1280px;
+$media-xxlarge: 1366px;
+$media-xxxlarge: 1920px; */
+
+/* ==========================================================================
+   Root styles
+   ========================================================================== */
+:root {
+  font-size: 62.5%;
+
+  --color-primary: #ff6f3d;
+  --color-primary-contrast: #404041;
+  --color-primary-shade: #f26433;
+  --color-primary-tint: #ff7545;
+
+  --color-light-gray: #e7e5e1;
+  --color-gray: #6e6e6d;
+
+  --background-color: #fbf9f4;
+  --background-color-shade: #f5f3ed;
+  --background-color-tint: #404041;
+
+  --text-color: #262626;
+  --text-color-contrast: #ffffff;
+  --text-color-shade: #000000;
+  --text-color-tint: #666666;
+
+  --primary-border-color: #ff6f3d;
+  --background-border-color: rgba(64, 64, 65, 10%);
+
+  --heading-1: 3rem;
+  --heading-2: 2.5rem;
+  --heading-3: 2rem;
+  --heading-4: 1.8rem;
+  --heading-5: 1.6rem;
+  --heading-6: 1.4rem;
+  --introductory: 1.8rem;
+
+  --top-bar-height: 3.2rem;
+  --app-bar-height: 6rem;
+  --app-bar-height-small: 6rem;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --container-max-width: 1280px;
+
+  --scrollbar-width: .4rem;
+  --scrollbar-background-color: rgba(0,0,0,0.125);
+  --scrollbar-foreground-color: rgba(0,0,0,0.5);
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --heading-1: 4.5rem;
+    --heading-2: 3rem;
+    --heading-3: 2.5rem;
+    --heading-4: 2rem;
+    --heading-5: 1.8rem;
+    --heading-6: 1.6rem;
+    --introductory: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  :root {
+    --app-bar-height: 10rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  :root {
+
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  :root {
+    --container-max-width: 1440px;
+  }
+}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: block;
+  font-family: sans-serif;
+  font-display: swap;
+  font-weight: var(--font-weight-normal);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 32rem;
+}
+
+body.is-locked {
+  overflow: hidden;
+  position: fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+label {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-black);
+  line-height: 1.125;
+  margin-bottom: 2rem;
+}
+
+h1,
+.h1 {
+  font-size: var(--heading-1) !important;
+  text-transform: uppercase;
+}
+
+h2,
+.h2 {
+  font-size: var(--heading-2) !important;
+  text-transform: uppercase;
+}
+
+h3,
+.h3 {
+  font-size: var(--heading-3) !important;
+  text-transform: uppercase;
+}
+
+h4,
+.h4 {
+  font-size: var(--heading-4) !important;
+  text-transform: uppercase;
+}
+
+h5,
+.h5 {
+  font-size: var(--heading-5) !important;
+  text-transform: uppercase;
+}
+
+h6,
+.h6 {
+  font-size: var(--heading-6) !important;
+  text-transform: uppercase;
+}
+
+small {
+  font-size: 1.3rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Lists START */
+main ul {
+  list-style: none;
+  line-height: 1.5;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+main ul li {
+  display: block;
+  margin: 0;
+  padding-left: 25px;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+main ul li:before {
+  background-color: currentColor;
+  border-radius: 3px;
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+
+main ul ul {
+  list-style: none;
+  margin: 0;
+}
+
+main ol {
+  line-height: 1.5;
+  margin: 2rem 0;
+  padding-left: 1.8rem;
+}
+
+main ol li {
+  margin: 0 0 0.5rem 0;
+}
+/* Lists END */
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid currentColor;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/*img*/
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+/*Text START*/
+.text {
+  display: block;
+  margin: 0 auto;
+  max-width: 80ch;
+  width: 100%;
+}
+
+.text * + *:not(li) {
+  margin: 2rem 0 0 0;
+}
+/*Text END*/
+
+/* Buttons START */
+.buttons {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  margin: 2rem 0 0 0;
+  width: 100%;
+}
+
+.buttons--justified-left {
+  justify-content: flex-start;
+}
+
+.buttons--justified-center {
+  justify-content: center;
+}
+
+.buttons--justified-right {
+  justify-content: flex-end;
+}
+
+.button {
+    align-items: center;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    line-height: 1.125;
+    margin: .5rem;
+    padding: 1rem 2rem;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:first-child {
+  margin-left: 0;
+}
+
+.button:last-child {
+  margin-right: 0;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button svg {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.icon-button {
+  align-items: center;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  line-height: 1.125;
+  justify-content: center;
+  min-height: 4rem;
+  min-width: 4rem;
+  margin: .5rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.icon-button:first-child {
+  margin-left: 0;
+}
+
+.icon-button:last-child {
+  margin-right: 0;
+}
+
+.icon-button:focus {
+  outline: none;
+}
+
+.icon-button svg {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+/* Buttons END */
+
+/* blockquote START */
+.blockquote {
+  margin: 0 auto;
+  max-width: 80ch;
+  border: 2px  dashed red,
+}
+/* blockquote END */
+
+/*Form START (TO DO)*/
+.form {
+  display: block;
+  margin: 0 auto;
+  max-width: 80ch;
+  width: 100%;
+}
+/*Form END*/
+
+/* .accordion START */
+.accordion {
+  border-bottom: 1px solid currentColor;
+  position: relative;
+  z-index: 0;
+}
+
+.accordion:last-child {
+  border-bottom: none;
+}
+
+.accordion__header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.accordion__icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  will-change: transform;
+  transition: transform 150ms ease-in;
+}
+
+.accordion__icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.accordion__inner-content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.accordion--active .accordion__icon {
+  transform: rotate(180deg);
+}
+
+.accordion--active .accordion__content {
+  max-height: 100rem;
+}
+/* .accordion END */
+
+/* .media START */
+
+.media {
+  display: block;
+  width: 100%;
+}
+
+.caption {
+  font-size: 1.3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.aspect-ratio-box {
+  display: block;
+  height: 0;
+  padding-top: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.aspect-ratio-box > .media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aspect-ratio-box--square { /* (1:1) */
+  padding-top: 100%;
+}
+
+.aspect-ratio-box--fullscreen { /* (4:3) */
+  padding-top: 75%;
+}
+
+.aspect-ratio-box--widescreen { /* (16:9) */
+  padding-top: 56.25%;
+}
+
+.aspect-ratio-box--ultrawide {  /* (21:9) */
+  padding-top: 42.85%;
+}
+
+.aspect-ratio-box--superwide {  /* (43:9) */
+  padding-top: 20.93%;
+}
+/* .media END */
+
+/* Header START */
+.header {
+  position: relative;
+  z-index: 0;
+}
+
+.top-bar {
+  min-height: var(--top-bar-height);
+  line-height: 1.125;
+  width: 100%;
+}
+
+.top-bar .container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-bar__col {
+  padding: 1rem;
+}
+
+.top-bar__col:first-child {
+  padding-left: 0;
+}
+
+.top-bar__col:last-child {
+  padding-right: 0;
+}
+
+.app-bar {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+.app-bar .container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: var(--app-bar-height);
+}
+
+.logo {
+  align-items: center;
+  color: currentColor;
+  display: inline-flex;
+  margin-right: 1rem;
+  padding: 0;
+  text-decoration: none;
+  height: 4rem;
+  width: 10rem;
+}
+
+.logo svg {
+  height: 100%;
+  width: 100%;
+}
+
+.app-bar-navigation {
+  align-items: center;
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-bar-navigation__item {
+
+}
+
+.app-bar-navigation__item--active {
+
+}
+
+.app-bar-navigation__anchor {
+  color: currentColor;
+  display: inline-block;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  padding: 1rem .5rem;
+  text-decoration: none;
+}
+
+.app-bar-navigation__anchor:focus {
+  outline: none;
+}
+
+.app-bar-navigation .icon-button {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+/* Header END */
+
+/* .footer START */
+.footer {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+.footer .container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__address {
+  font-style: normal;
+}
+
+.footer__some {
+
+}
+
+.footer__some .icon-button {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.footer .icon-button:first-child {
+  margin-left: 0;
+}
+
+.footer .icon-button:last-child {
+  margin-right: 0;
+}
+
+/* .footer END */
+
+/* .drawer START */
+.drawer {
+  background-color: white;
+  box-shadow: 0px 8px 10px -5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 14%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
+  color: black;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@media only screen and (min-width: 768px) {
+ .drawer {
+    width: 50vw;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+ .drawer {
+    width: 33.33vw;
+  }
+}
+
+.drawer__inner {
+  padding: 6rem 1.6rem;
+}
+
+@media only screen and (min-width: 768px) {
+ .drawer__inner {
+    padding: 6rem 4rem;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+ .drawer__inner {
+    padding: 6rem 6rem;
+  }
+}
+
+.drawer__close-button {
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+/* .drawer END */
+
+/* .modal START */
+.modal {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+  color: black;
+  margin: 0 auto;
+  max-width: 90vw;
+}
+
+@media only screen and (min-width: 768px) {
+ .modal {
+    max-width: 80ch;
+    padding: 4rem 2rem;
+  }
+}
+
+.modal__inner {
+  max-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal__content {
+  padding: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+ .modal__content {
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+ .modal__content {
+    padding: 0 4rem;
+  }
+}
+
+.modal__close-button {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.modal-wrap {
+  background: rgba(0,0,0,.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* .modal END */
+
+/* Grid START */
+.grid-1-col,
+.grid-2-col,
+.grid-3-col,
+.grid-4-col,
+.grid-5-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .grid-2-col {
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+  }
+
+  .grid-3-col {
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+  }
+
+  .grid-4-col {
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+  }
+
+  .grid-5-col {
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+  }
+
+}
+
+
+/* Grid END */
+
+/* .icon START */
+
+.icon {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  fill: inherit;
+  justify-content: center;
+  z-index: 1;
+}
+
+.icon svg {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+@media only screen and (min-width: 1280px) {
+  .icon svg {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+/* .icon END */
+
+/* .dropdown START */
+.dropdown {
+  min-width: 15rem;
+  position: relative;
+  margin: 0 auto;
+  max-width: 80ch;
+}
+
+.dropdown__header {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-bottom: .5rem;
+}
+
+.dropdown__header .icon {
+  height: 1.6rem;
+  width: 1.6rem;
+  transition: transform 150ms;
+}
+
+.dropdown__content {
+  background-color: white;
+  border-radius: .5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  color: black;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+@media (hover: hover) {
+  .dropdown__content::-webkit-scrollbar { width: var(--scrollbar-width);}
+  .dropdown__content::-webkit-scrollbar-track { background: var(--scrollbar-background-color); }
+  .dropdown__content::-webkit-scrollbar-thumb { background: var(--scrollbar-foreground-color); }
+  .dropdown__content::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-foreground-color); }
+
+  .dropdown__content > * {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.dropdown__anchor {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  color: currentColor;
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 150ms;
+}
+
+@media (hover: hover) {
+  .dropdown__anchor:hover {
+    background-color: rgba(0,0,0,.05);
+  }
+}
+
+.dropdown--active .dropdown__content {
+  min-height: 15rem;
+  max-height: 30rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.dropdown--active .icon {
+  transform: rotate(180deg);
+}
+
+/* .dropdown END */
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.spacing-top--small {
+  padding-top: 1.5rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .spacing-top--small {
+    padding-top: 3rem;
+  }
+}
+
+.spacing-top--medium {
+  padding-top: 3rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .spacing-top--medium {
+    padding-top: 6rem;
+  }
+}
+
+.spacing-top--large {
+  padding-top: 4.5rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .spacing-top--large {
+    padding-top: 9rem;
+  }
+}
+
+.spacing-bottom--small {
+  padding-bottom: 1.5rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .spacing-bottom--small {
+    padding-bottom: 3rem;
+  }
+}
+
+.spacing-bottom--medium {
+  padding-bottom: 3rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .spacing-bottom--medium {
+    padding-bottom: 6rem;
+  }
+}
+
+.spacing-bottom--large {
+  padding-bottom: 4.5rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .spacing-bottom--large {
+    padding-bottom: 9rem;
+  }
+}
+
+/* .scrollbar START */
+@media (hover: hover) {
+  .scrollbar::-webkit-scrollbar { width: var(--scrollbar-width);}
+  .scrollbar::-webkit-scrollbar-track { background: var(--scrollbar-background-color); }
+  .scrollbar::-webkit-scrollbar-thumb { background: var(--scrollbar-foreground-color); }
+  .scrollbar::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-foreground-color); }
+
+  .scrollbar > * {
+    /* max-height: 20rem; */
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+/* .scrollbar END */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff;
+    color: #000;
+    /* Black prints faster */
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

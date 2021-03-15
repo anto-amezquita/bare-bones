@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Shopping Cart
+   ========================================================================== */
+.shopping-cart {
+  --shop__border-color: rgba(0,0,0,.125);
+
+  border: 3px dashed var(--shop__border-color);
+
+}
+
+.shopping-cart__content {
+
+}
+
+.shopping-cart__sub-total {
+
+}
+
+.shopping-cart__sub-total-price {
+
+}
+
+.shopping-cart__actions {
+
+}
+
+.shopping-cart__action-update-cart {
+
+}
+
+.shopping-cart__action-empty-cart {
+
+}
+
+
+/* ==========================================================================
+   Shopping Checkout
+   ========================================================================== */
+.shopping-checkout {
+
+}
+
+
+/* ==========================================================================
+   Shopping Order
+   ========================================================================== */
+.shopping-order {
+
+}
