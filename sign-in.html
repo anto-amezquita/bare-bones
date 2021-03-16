@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <main class="container spacing-top--medium spacing-bottom--medium">
+
+    <!-- #sign-in START -->
+    <form action="#" method="post" class="form" id="sign-in">
+
+      <h1>Sign in</h1>
+
+      <section class="text-field-wrapper">
+        <div class="text-field">
+          <label class="text-field__label" for="email">Email</label>
+          <input class="text-field__input" id="email" name="email" type="email" placeholder=" " autocomplete="username" required autofocus>
+        </div>
+      </section>
+
+      <section class="text-field-wrapper">
+        <div class="text-field">
+          <label class="text-field__label" for="current-password">Password</label>
+          <input class="text-field__input" id="current-password" name="current-password" type="password" autocomplete="current-password" aria-describedby="password-constraints" required>
+        </div>
+        <div class="text-field__feedback">Eight or more characters, with at least one&nbsp;lowercase and one uppercase letter.</div>
+      </section>
+
+      <div class="buttons flex-justify-space-between flex-align-center">
+        <a href="forgot-password.html">Forgot Password</a>
+        <button class="button">Sign in</button>
+      </div>
+
+    </form>
+    <!-- #sign-in END -->
+
+  </main>
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
