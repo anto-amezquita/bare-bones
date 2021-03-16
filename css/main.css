@@ -439,16 +439,23 @@ img {
   width: 100%;
 }
 
-.form input[type=email],
-.form input[type=month],
-.form input[type=number],
-.form input[type=password],
-.form input[type=search],
-.form input[type=tel],
-.form input[type=text],
-.form input[type=time],
-.form input[type=url],
-.form input[type=week]  {
+.text-field-wrapper {
+  margin-bottom: 2rem;
+}
+
+.text-field {
+  position: relative;
+}
+
+.text-field__label {
+  display: block;
+  font-size: 1.3rem;
+  line-height: 1.125;
+  padding-bottom: .5rem;
+  /* border: 1px dashed currentColor; */
+}
+
+.text-field__input {
   align-items: center;
   background-color: var(--form-input-background-color);
   border: 1px solid var(--form-input-foreground-color);
@@ -460,32 +467,15 @@ img {
   width: 100%;
 }
 
-.form input[type=email]:not(:placeholder-shown):invalid,
-.form input[type=month]:not(:placeholder-shown):invalid,
-.form input[type=number]:not(:placeholder-shown):invalid,
-.form input[type=password]:not(:placeholder-shown):invalid,
-.form input[type=search]:not(:placeholder-shown):invalid,
-.form input[type=tel]:not(:placeholder-shown):invalid,
-.form input[type=text]:not(:placeholder-shown):invalid,
-.form input[type=time]:not(:placeholder-shown):invalid,
-.form input[type=url]:not(:placeholder-shown):invalid,
-.form input[type=week]:not(:placeholder-shown):invalid {
+.text-field__input:focus {
+  border: 2px solid var(--form-input-foreground-color);
+}
+
+.text-field__input:not(:placeholder-shown):invalid {
   color: var(--color-red);
 }
 
-.form-text-field {
-  margin-bottom: 2rem;
-}
-
-.form-text-field label {
-  display: block;
-  font-size: 1.3rem;
-  line-height: 1.125;
-  padding-bottom: .5rem;
-  /* border: 1px dashed currentColor; */
-}
-
-.form-text-field__feedback {
+.text-field__feedback {
   font-size: 1.3rem;
   line-height: 1.125;
   padding-top: .5rem;
