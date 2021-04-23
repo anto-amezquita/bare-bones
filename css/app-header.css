@@ -122,10 +122,18 @@
   }
 }
 
+/* .app-menu-primary START */
 .app-menu-primary {
-
+  display: none;
 }
 
+@media only screen and (min-width: 1280px) {
+  .app-menu-primary {
+    display: flex;
+  }
+}
+
+/* .app-menu-secondary START */
 .app-menu-secondary {
 
 }
