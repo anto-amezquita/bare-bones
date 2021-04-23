@@ -1,0 +1,141 @@
+/* ==========================================================================
+   .app-header
+   ========================================================================== */
+.app-header {
+  --pre-app-bar-height: 3.6rem;
+  --app-bar-height: 6rem;
+  --app-bar-height-small: 6rem;
+  --app-menu-anchor-active-color: purple;
+}
+
+@media only screen and (min-width: 768px) {
+  .app-header {
+    --app-bar-height: 9rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .app-header {
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .app-header {
+    --app-bar-height: 10rem;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .app-header {
+  }
+}
+
+/* ==========================================================================
+   Pre App bar
+   ========================================================================== */
+.pre-app-bar {
+  font-size: var(--small);
+}
+
+.pre-app-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--pre-app-bar-height);
+}
+
+/* Pre app bar dropdown overrides */
+.pre-app-bar .dropdown__header {
+  font-weight: bold;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.pre-app-bar .dropdown__content {
+  left: auto;
+  right: 0;
+}
+
+/* ==========================================================================
+   App bar
+   ========================================================================== */
+.app-bar {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+.app-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--app-bar-height);
+}
+
+.app-bar-logo {
+  align-items: center;
+  color: currentColor;
+  display: inline-flex;
+  margin-right: 1rem;
+  padding: 0;
+  text-decoration: none;
+  height: 4rem;
+  width: 10rem;
+}
+
+.app-bar-logo svg {
+  height: 100%;
+  width: 100%;
+}
+
+.app-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-menu__item {
+  padding: 0 .5rem;
+}
+
+.app-menu__item--active {
+  color: var(--app-menu-anchor-active-color);
+}
+
+.app-menu__anchor {
+  color: currentColor;
+  display: inline-block;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.app-menu__anchor:focus {
+  outline: none;
+}
+
+@media (hover: hover) {
+  .app-menu__anchor:hover {
+    color: var(--app-menu-anchor-active-color);
+  }
+}
+
+.app-menu-primary {
+
+}
+
+.app-menu-secondary {
+
+}
+
+.app-menu-secondary .app-menu__item {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.app-menu-secondary .app-menu__item:last-child {
+  padding-right: 0;
+}
+
