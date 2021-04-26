@@ -13,6 +13,7 @@ function toggleDrawer(event) {
 
 // Close all drawers
 function closeAllDrawers() {
+  //console.log("closeAllDrawers");
   var drawers = document.getElementsByClassName("drawer");
   var i;
   for (i = 0; i < drawers.length; i++) {
@@ -22,6 +23,7 @@ function closeAllDrawers() {
     }
   }
 }
+
 
 /* ==========================================================================
    Dropdown
@@ -35,17 +37,23 @@ function toggleDropdown(event) {
     }
 }
 
+// Close all dropdowns
+function closeAllDropdowns() {
+  //console.log("closeAllDropdowns");
+  var dropdowns = document.getElementsByClassName("dropdown__button");
+  var i;
+  for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains("dropdown--active")) {
+      openDropdown.classList.remove("dropdown--active");
+    }
+  }
+}
+
 // Close the dropdown menu if the user clicks outside of it
 window.addEventListener('click', function(event) {
   if (!event.target.matches(".dropdown__button")) {
-    var dropdowns = document.getElementsByClassName("dropdown__button");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("dropdown--active")) {
-        openDropdown.classList.remove("dropdown--active");
-      }
-    }
+    closeAllDropdowns();
   }
 });
 

@@ -148,7 +148,7 @@
 }
 
 
-//Buttons overrides
+/* Buttons overrides */
 .app-bar .button:hover,
 .app-bar .icon-button:hover {
   color: var(--app-menu-anchor-active-color);
