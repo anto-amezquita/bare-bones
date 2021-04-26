@@ -642,56 +642,84 @@ img {
 
 /* .footer END */
 
-/* .drawer START */
+/* .drawer START (right to left)*/
 .drawer {
-  background-color: white;
-  box-shadow: 0px 8px 10px -5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 14%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
-  color: black;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
+  --drawer-bg-color: white;
+  --drawer-color: black;
+  --drawer-box-shadow: 0px 8px 10px -5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 14%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
+  --drawer-width: 100vw;
+  --drawer-initial-x-position: -100vw;
+  --drawer-inner-padding: 6rem 1.6rem;
+
+  background-color: var(--drawer-bg-color);
+  color: var(--drawer-color);
   overflow-x: hidden;
   overflow-y: auto;
+  position: fixed;
+  top: 0;
+  right: var(--drawer-initial-x-position);
+  bottom: 0;
+  width: var(--drawer-width);
+  transform: translateX(0%);
+  transition: opacity 150ms, transform 150ms;
 }
 
 @media only screen and (min-width: 768px) {
  .drawer {
-    width: 50vw;
+   --drawer-width: 50vw;
+   --drawer-initial-x-position: -50vw;
+   --drawer-inner-padding: 6rem 4rem;
   }
 }
 
 @media only screen and (min-width: 1920px) {
  .drawer {
-    width: 33.33vw;
+   --drawer-width: 33.33vw;
+   --drawer-initial-x-position: -33.33vw;
+   --drawer-inner-padding: 6rem;
   }
 }
 
 .drawer__inner {
-  padding: 6rem 1.6rem;
+  padding: var(--drawer-inner-padding);
 }
 
-@media only screen and (min-width: 768px) {
- .drawer__inner {
-    padding: 6rem 4rem;
-  }
-}
-
-@media only screen and (min-width: 1920px) {
- .drawer__inner {
-    padding: 6rem 6rem;
-  }
-}
-
-.drawer__close-button {
+.drawer-close-button {
+  background: transparent;
+  border: none;
   cursor: pointer;
+  padding: 0;
   position: fixed;
   top: 0;
   right: 0;
+  width: 5rem;
+  height: 5rem;
+  display: none;
 }
 
+.drawer-close-button:focus {
+  border: none;
+  outline: none;
+}
+
+.drawer--active {
+  box-shadow: var(--drawer-box-shadow);
+  transform: translateX(-100%);
+}
+
+.drawer--active + .drawer-close-button {
+  display: inline-block;
+}
+
+/* .toggle-drawer-button {
+
+}
+
+.toggle-drawer-button--active {
+
+} */
 /* .drawer END */
+
 
 /* .modal START */
 .modal {
@@ -806,7 +834,8 @@ img {
   display: inline-flex;
   fill: inherit;
   justify-content: center;
-  z-index: 1;
+  pointer-events: none;
+  /* z-index: 0; */
 }
 
 .icon svg {
