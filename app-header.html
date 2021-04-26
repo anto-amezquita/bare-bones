@@ -35,16 +35,18 @@
 
         <div>
           Change language
-          <div class="dropdown dropdown--active-">
-            <button class="dropdown__header">
+          <div class="dropdown">
+            <button class="dropdown__button" onclick="toggleDropdown(event)">
               English
-              <div class="icon">
+              <div class="icon icon--sm ml-0-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><title>arrow-down</title><polyline points="3.38 17.75 32.04 46.42 60.71 17.75" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="9.05"/></svg>
               </div>
             </button>
             <div class="dropdown__content">
-              <a class="dropdown__anchor" href="/">Dansk</a>
-              <a class="dropdown__anchor" href="/">German</a>
+              <div class="dropdown__inner">
+                <a class="dropdown__anchor" href="/">Dansk</a>
+                <a class="dropdown__anchor" href="/">German</a>
+              </div>
             </div>
           </div>
         </div>
@@ -81,7 +83,7 @@
         <ul class="app-menu app-menu-secondary">
           <li class="app-menu__item">
             <a href="#" class="button">
-              <div class="icon pr-1">
+              <div class="icon mr-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
                     <title>plus</title>
                     <line x1="0.01" y1="32" x2="64.01" y2="32" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="10"/>

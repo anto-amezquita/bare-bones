@@ -45,7 +45,7 @@
 }
 
 /* Pre app bar dropdown overrides */
-.pre-app-bar .dropdown__header {
+.pre-app-bar .dropdown__button {
   font-weight: bold;
   padding-top: 0;
   padding-bottom: 0;

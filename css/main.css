@@ -843,6 +843,11 @@ img {
 
 /* .dropdown START */
 .dropdown {
+  --dropdown-content-font-size: 1.4rem;
+  --dropdown-content-bg-color: white;
+  --dropdown-content-color: black;
+  --dropdown-content-radius: .5rem;
+  --dropdown-content-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   display: inline-block;
   position: relative;
   margin: 0 auto;
@@ -859,6 +864,10 @@ img {
   padding: 1rem 0;
 }
 
+.dropdown__button .icon {
+  pointer-events: none;
+}
+
 .dropdown__button:focus {
   outline: none;
 }
@@ -868,26 +877,31 @@ img {
 }
 
 .dropdown__content {
-  background-color: white;
-  border-radius: .5rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  color: black;
+  background-color: var(--dropdown-content-bg-color);
+  border-radius: var(--dropdown-content-radius);
+  box-shadow: var(--dropdown-content-box-shadow);
+  color: var(--dropdown-content-color);
+  font-size: var(--dropdown-content-font-size);
+  overflow: hidden;
   position: absolute;
   left: 0;
   top: calc(100% + 10px);
-  width: 15rem;
-  max-height: 0;
-  overflow: hidden;
   z-index: 2;
 }
 
-@media (hover: hover) {
-  .dropdown__content::-webkit-scrollbar { width: var(--scrollbar-width);}
-  .dropdown__content::-webkit-scrollbar-track { background: var(--scrollbar-background-color); }
-  .dropdown__content::-webkit-scrollbar-thumb { background: var(--scrollbar-foreground-color); }
-  .dropdown__content::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-foreground-color); }
+.dropdown__inner {
+  max-height: 0;
+  overflow: hidden;
+  width: 15rem;
+}
 
-  .dropdown__content > * {
+@media (hover: hover) {
+  .dropdown__inner::-webkit-scrollbar { width: 3px; }
+  .dropdown__inner::-webkit-scrollbar-track { background: var(--scrollbar-background-color); }
+  .dropdown__inner::-webkit-scrollbar-thumb { background: var(--scrollbar-foreground-color); }
+  .dropdown__inner::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-foreground-color); }
+
+  .dropdown__inner {
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -909,8 +923,9 @@ img {
   }
 }
 
-.dropdown__button.dropdown--active + .dropdown__content {
+.dropdown__button.dropdown--active + .dropdown__content .dropdown__inner {
   min-height: 12rem;
+  margin: 0 0;
   max-height: 24rem;
   overflow-x: hidden;
   overflow-y: auto;
