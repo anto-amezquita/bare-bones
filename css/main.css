@@ -909,15 +909,18 @@ img {
   --dropdown-content-color: black;
   --dropdown-content-radius: .5rem;
   --dropdown-content-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+  color: currentColor;
   display: inline-block;
-  position: relative;
   margin: 0 auto;
+  position: relative;
 }
 
 .dropdown__button {
   align-items: center;
   background: transparent;
   border: none;
+  color: currentColor;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
